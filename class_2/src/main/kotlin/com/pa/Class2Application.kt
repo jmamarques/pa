@@ -8,8 +8,20 @@ class Class2Application
 fun main(args: Array<String>) {
 
 //    runApplication<Class2Application>(*args)
-    extraMain(args)
+//    extraMain(args)
+    // ex 1
+    println(factorial(4))
+    // ex tail recursive
+    println(factorialTail(5))
+
 }
+fun factorialTail(n: Int): Int {
+    tailrec fun tailFactorial(n: Int, r: Int): Int = if (n <= 1) r else tailFactorial(n-1, r*n)
+    return tailFactorial(n, 1)
+}
+
+fun factorial(n: Int): Int = if( n <= 1) 1
+        else n * factorial(n - 1)
 
 fun extraMain(args: Array<String>) {
     println(args.contentToString())
